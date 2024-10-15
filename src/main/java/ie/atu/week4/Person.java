@@ -12,18 +12,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Person {
-    @NotBlank
+    @NotBlank(message = "This value cannot be blank")
     private String name;
-    @NotBlank
+    @NotBlank(message = "This value cannot be blank")
     private String title;
-    @Min(value = 0, message = "ID must be greater than 0")
+    @Min(value = 1, message = "ID must be greater than 0")
     private int employeeId;
-    @Min(value = 17, message = "Age must be greater than 17")
+    @Min(value = 18, message = "Age must be greater than 17")
     private int age;
-    @Email
+    @Email(message = "Invalid email address")
     private String email;
-    @NotBlank
+    @NotBlank(message = "This value cannot be blank")
     private String position;
-    @NotBlank
+    @NotBlank(message = "This value cannot be blank")
     private String department;
 }
