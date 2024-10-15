@@ -1,21 +1,24 @@
 package ie.atu.week4;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/person")
 public class PersonController {
+    List<Person> personList = new ArrayList<>();
+
     @GetMapping("/getPerson")
-    public String getPerson()
+    public List<Person> getPerson()
     {
-        return "Person returned";
+        return personList;
     }
     @PostMapping("/createPerson")
-    public String addPerson()
+    public List<Person> addPerson(@RequestBody Person person)
     {
-        return "Person added";
+        personList.add(person);
+        return personList;
     }
 }
